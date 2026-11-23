@@ -139,10 +139,15 @@ Main success scenario:
 
 ### Use Case 5: Create a Qualification Profile
 Lead: Lingnan Meng
+
 MVP: Yes
+
 Primary actor: Student
+
 Preconditions: The application is available, and the student does not have a saved profile.
+
 Trigger: The student requests to create a profile.
+
 Success outcome: The student's qualifications and preferences are saved, are available in later sessions, and can be used for personalized recommendations.
 
 Main success scenario
@@ -152,6 +157,7 @@ Main success scenario
 4. The system checks the required information and the format of any graduation year entered. Repeated skill entries are treated as one skill.
 5. The system saves the profile and shows the saved information.
 6. The system offers personalized suggestions through P3 without requiring a separate search query.
+
 Extensions
 - 3a. The student cancels before submission: No profile is created.
 - 4a. The program or skills are missing, or the graduation year is invalid: The system identifies the affected information and preserves the entered values. The student corrects them and returns to step 3.
@@ -160,10 +166,15 @@ Extensions
 
 ### Use Case 6: Update a Qualification Profile
 Lead: Lingnan Meng
+
 MVP: Yes
+
 Primary actor: Student
-Preconditions: The student has a saved profile.
+
+Preconditions: The student has a saved profile.'
+
 Trigger: The student requests to update their qualifications or preferences.
+
 Success outcome: The revised profile is saved, is visible to the student, and is used for later recommendations.
 
 Main success scenario
@@ -173,6 +184,7 @@ Main success scenario
 4. The system checks the same profile rules used during creation.
 5. The system saves and displays the updated profile.
 6. The student can view recommendations through P3 using the updated information.
+
 Extensions
 - 2a. The saved profile cannot be loaded: The system explains the problem and offers another attempt; it does not present an empty profile as the saved one.
 - 3a. The student cancels: The previously saved profile remains unchanged.
@@ -181,11 +193,17 @@ Extensions
 
 ### Use Case 7: View Personalized Internship Recommendations
 Lead: Lingnan Meng
+
 MVP: Yes; main use case for this feature
+
 Primary actor: Student
+
 Supporting actor: Greenhouse job-posting service
+
 Preconditions: The student has a saved profile that meets the profile requirements.
+
 Trigger: The student opens personalized recommendations, including when continuing from profile creation.
+
 Success outcome: The student sees suggestions based on the latest saved profile, with matching reasons and application links, without entering a manual search query.
 
 Main success scenario
@@ -195,24 +213,32 @@ Main success scenario
 4. The system identifies internship postings and applies the student's saved role, location, and work-arrangement preferences.
 5. The system identifies distinct profile skills mentioned in the remaining postings and orders postings with at least one skill match by the number of matched skills.
 6. The system displays each suggestion's title, company, location, work-arrangement information, matched skills, and application link.
+
 Extensions
 - 2a. The profile cannot be loaded: The system explains the problem and offers a retry. It does not label generic results as personalized recommendations.
 - 3a. All job sources fail: The system explains that recommendations are unavailable and allows a retry. It does not treat a retrieval failure as proof that there are no suitable jobs.
 - 3b. Only some company boards fail: The system continues with available postings and identifies that the results are incomplete.
 - 4a. A work arrangement is unclear: The system marks it UNKNOWN and keeps it available for review with that label.
 - 5a. No postings match: The system explains that no matches were found and offers the option to update the profile or preferences.
+
 Limits: Suggestions indicate keyword relevance, not verified eligibility. Unspecified requirements stay unknown. An empty result is a valid result. The MVP does not automatically submit applications.
 
 ### Use Case 8: Add an Application to the Shortlist
+
 Owner: Rui Zhou
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
 - The user is viewing the job display page for a specific job.
+
 Trigger: The user clicks the “Save to Shortlist” button for the currently displayed job.
+
 Success outcome: 
 - The selected job application is added to the user's shortlist and can be viewed later from the home page or shortlist 
 page.
+
 Main Success Scenario: 
 1. The user requests to add the currently displayed job application to the shortlist.
 2. The system identifies the currently displayed job application.
@@ -221,6 +247,7 @@ Main Success Scenario:
 5. The system saves the updated shortlist.
 6. The system confirms that the application was successfully added.
 7. The user can later view the saved application from the shortlist on the home page.
+
 Extensions:
 3a. The application is already in the shortlist.
 - The system does not add a duplicate application.
@@ -234,21 +261,27 @@ Extensions:
 
 ### Use Case 9: Sort Shortlist by Due Date
 Owner: Rui Zhou
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
 - The user is viewing their shortlist.
 - The user has access to their shortlist.
+
 Trigger: The user clicks the button to sort the shortlist by due date.
+
 Success outcome:
 - The applications in the shortlist are displayed in order according to their due dates, allowing the user to identify 
 the applications with the closest deadlines.
+
 Main Success Scenario:
 1. The user requests to sort the shortlist by due date.
 2. The system retrieves the applications currently saved in the user's shortlist.
 3. The system retrieves the due date associated with each application.
 4. The system orders the applications by due date, with the earliest due dates appearing first.
 5. The system displays the newly sorted shortlist to the user.
+
 Extensions:
 2a. The shortlist is empty.
 - The system informs the user that there are no applications to sort.
@@ -264,15 +297,21 @@ unavailable due dates at the bottom of the shortlist.
 - The system preserves their existing relative order.
 
 ### Use Case 10: Sort Shortlist by Relevancy
+
 Owner: Rui Zhou 
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
 - The user is viewing their shortlist.
+
 Trigger: The user clicks the button to sort their shortlist by relevancy.
+
 Success outcome: 
 - The applications in the shortlist are displayed in descending order of relevancy based on the user's 
 preferred career fields, allowing the user to identify applications that best match their career interests.
+
 Main Success Scenario:
 1. The user selects the option to sort by relevancy.
 2. The system retrieves the user's preferred career fields from their profile.
@@ -281,6 +320,7 @@ Main Success Scenario:
 5. The system calculates a relevancy score for each application based on the number of distinct preferred fields matched.
 6. The system sorts the applications in descending order of relevancy score.
 7. The system displays the sorted shortlist to the user.
+
 Extensions:
 2a. The shortlist is empty.
 - The system informs the user that there are no applications to sort.
@@ -293,6 +333,7 @@ Extensions:
 - The system preserves the existing order of the shortlist.
 5a. Multiple applications have the same relevancy score.
 - The system preserves their existing relative order.
+
 Postconditions:
 - The shortlisted applications are displayed in descending order of relevancy based on the user's preferred career 
 fields.
