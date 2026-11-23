@@ -2,7 +2,7 @@
 ## [TUT0301] Group 40 - BA3185
 ### Team Members
 - Emily Kim
-- Jerry Zhou
+- Rui (Jerry) Zhou
 - Austin Wu
 - Yuheng Liu
 - Lingnan Meng
@@ -14,35 +14,46 @@ create/record the resume used for each application, and track application progre
 ---
 ## User Stories
 ### User Story 1
-As a user, I want to search for internship opportunities that match my search keywords so that I can find relevant positions and spend less time browsing company websites.
+Owner Yuheng Liu
+
+As a user, I want to search for internship opportunities that match my search keywords so that I can find relevant 
+positions and spend less time browsing company websites.
 
 ### User Story 2
+Owner: Emily Kim
+
 As a user, I want to create or upload multiple resume versions and associate them with my saved internship 
 applications so that I can keep track of which resume I submitted to each employer.
 
-### User Story 3
-As a user, I want to save internship opportunities, update their application statuses, and organize them by priority 
-or deadline so that I can manage my applications in one place.
+### User Story 5
+Owner: Austin Wu
 
-### User Story 4
 As a user, I want to have a hub where I can receive a visual summary of my internship application progress, including 
 the number of applications submitted over time and the number that have progressed beyond the first interview, 
 so that I can evaluate my application progress.
 
-### User Story 5
+### User Story 6
+Owner: Lingnan Meng
+
 As a user, I want to create a profile with all my qualifications so that I would be recommended internships without 
 having to search
 
-### User Story 6
-As a user, I want to save job applications that I may apply to into a shortlist so that I can easily find them and 
+### User Story 7
+Owner: Rui Zhou
+
+As a user, I want to save internship postings that I may apply to into a shortlist so that I can easily find them and 
 work on them later.
 
-### User Story 7
-As a user, I want to sort my shortlist of applications by due date so that I can identify which applications have 
+### User Story 8
+Owner: Rui Zhou
+
+As a user, I want to sort my shortlist of internship postings by due date so that I can identify which postings have 
 the earliest deadlines and prioritize them accordingly.
 
-### User Story 8
-As a user, I want to sort my shortlist of applications by relevancy so that I can identify which applications are 
+### User Story 9
+Owner: Rui Zhou
+
+As a user, I want to sort my shortlist of internship postings by relevancy so that I can identify which postings are 
 most useful to my career development and prioritize them accordingly.
 
 ---
@@ -50,6 +61,10 @@ most useful to my career development and prioritize them accordingly.
 ### Use Case 1
 ### Use Case 2
 Name: Import Resume
+
+Owner: Emily Kim
+
+MVP: Yes
 
 Primary actor: A user finding internships
 
@@ -71,6 +86,10 @@ Extensions:Ask user if they want to add a new resume when they make a new applic
 ### Use Case 3
 Name: Create a resume in the system
 
+Owner: Emily Kim
+
+MVP: No
+
 Primary actor: A user finding internships
 
 Preconditions: User should be logged in with a profile
@@ -89,8 +108,12 @@ Main success scenario:
 
 Extensions: Ask user if they would like to build a resume before sending them through the link
 
-### Use Case 4: 
+### Use Case 4:
+Name: Search for job postings
+
 Owner: Yuheng Liu
+
+MVP: Yes
 
 Primary actor: A user looking for internship opportunities.
 
@@ -112,7 +135,9 @@ Main success scenario:
 4. The system identifies internship postings and filters them according to the search rules below.
 5. The system displays the number of matching postings and each posting’s title, company, location, and application link. Missing location information is displayed as “Not specified.”
 6. The user reviews the search results.
-   Extensions:
+
+Extensions:
+
 - 2a. The search input is empty or contains only whitespace.
   The system asks the user to enter at least one keyword and does not retrieve job postings. The user may correct the input and return to step 1.
 - 3a. All configured job boards fail to return data because of a connection problem, timeout, or service error.
@@ -129,15 +154,22 @@ Main success scenario:
 - Every submitted keyword must appear in the posting’s title or description for the posting to match.
 - Search results cover only the configured company job boards.
 - A keyword match indicates relevance, not verified eligibility. Users must review the employer’s requirements before applying.
-  Failure guarantee:
-  An unsuccessful search does not modify saved jobs, resumes, or application records.
+  
+Failure guarantee: 
+An unsuccessful search does not modify saved jobs, resumes, or application records.
 
 ### Use Case 5: Create a Qualification Profile
+
 Lead: Lingnan Meng
+
 MVP: Yes
+
 Primary actor: Student
+
 Preconditions: The application is available, and the student does not have a saved profile.
+
 Trigger: The student requests to create a profile.
+
 Success outcome: The student's qualifications and preferences are saved, are available in later sessions, and can be used for personalized recommendations.
 
 Main success scenario
@@ -147,18 +179,26 @@ Main success scenario
 4. The system checks the required information and the format of any graduation year entered. Repeated skill entries are treated as one skill.
 5. The system saves the profile and shows the saved information.
 6. The system offers personalized suggestions through P3 without requiring a separate search query.
+
 Extensions
+
 - 3a. The student cancels before submission: No profile is created.
 - 4a. The program or skills are missing, or the graduation year is invalid: The system identifies the affected information and preserves the entered values. The student corrects them and returns to step 3.
 - 5a. Saving fails: The system explains that the profile was not saved and retains the entered values for another attempt.
 - 6a. Recommendations are unavailable: The created profile remains saved. P3 handles the recommendation failure.
 
 ### Use Case 6: Update a Qualification Profile
+
 Lead: Lingnan Meng
+
 MVP: Yes
+
 Primary actor: Student
+
 Preconditions: The student has a saved profile.
+
 Trigger: The student requests to update their qualifications or preferences.
+
 Success outcome: The revised profile is saved, is visible to the student, and is used for later recommendations.
 
 Main success scenario
@@ -168,6 +208,7 @@ Main success scenario
 4. The system checks the same profile rules used during creation.
 5. The system saves and displays the updated profile.
 6. The student can view recommendations through P3 using the updated information.
+
 Extensions
 - 2a. The saved profile cannot be loaded: The system explains the problem and offers another attempt; it does not present an empty profile as the saved one.
 - 3a. The student cancels: The previously saved profile remains unchanged.
@@ -175,13 +216,21 @@ Extensions
 - 5a. Saving fails: The system reports the failure, retains the edits for retrying, and preserves the previous saved profile.
 
 ### Use Case 7: View Personalized Internship Recommendations
+
 Lead: Lingnan Meng
-MVP: Yes; main use case for this feature
+
+MVP: Yes
+
 Primary actor: Student
+
 Supporting actor: Greenhouse job-posting service
+
 Preconditions: The student has a saved profile that meets the profile requirements.
+
 Trigger: The student opens personalized recommendations, including when continuing from profile creation.
-Success outcome: The student sees suggestions based on the latest saved profile, with matching reasons and application links, without entering a manual search query.
+
+Success outcome: The student sees suggestions based on the latest saved profile, with matching reasons and application 
+links, without entering a manual search query.
 
 Main success scenario
 1. The student requests to view personalized recommendations.
@@ -190,126 +239,167 @@ Main success scenario
 4. The system identifies internship postings and applies the student's saved role, location, and work-arrangement preferences.
 5. The system identifies distinct profile skills mentioned in the remaining postings and orders postings with at least one skill match by the number of matched skills.
 6. The system displays each suggestion's title, company, location, work-arrangement information, matched skills, and application link.
+
 Extensions
 - 2a. The profile cannot be loaded: The system explains the problem and offers a retry. It does not label generic results as personalized recommendations.
 - 3a. All job sources fail: The system explains that recommendations are unavailable and allows a retry. It does not treat a retrieval failure as proof that there are no suitable jobs.
 - 3b. Only some company boards fail: The system continues with available postings and identifies that the results are incomplete.
 - 4a. A work arrangement is unclear: The system marks it UNKNOWN and keeps it available for review with that label.
 - 5a. No postings match: The system explains that no matches were found and offers the option to update the profile or preferences.
+
 Limits: Suggestions indicate keyword relevance, not verified eligibility. Unspecified requirements stay unknown. An empty result is a valid result. The MVP does not automatically submit applications.
 
-### Use Case 8: Add an Application to the Shortlist
+### Use Case 8: Add an Internship Posting to the Shortlist
 Owner: Rui Zhou
+
+MVP: Yes
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
-- The user is viewing the job display page for a specific job.
+- The user is viewing the job display page for a specific internship posting.
+
 Trigger: The user clicks the “Save to Shortlist” button for the currently displayed job.
+
 Success outcome: 
-- The selected job application is added to the user's shortlist and can be viewed later from the home page or shortlist 
+- The selected internship posting is added to the user's shortlist and can be viewed later from the home page or shortlist 
 page.
+
 Main Success Scenario: 
-1. The user requests to add the currently displayed job application to the shortlist.
-2. The system identifies the currently displayed job application.
-3. The system checks whether the application is already in the user's shortlist.
-4. The system adds the application to the user's shortlist.
+1. The user requests to add the currently displayed internship posting to the shortlist.
+2. The system identifies the currently displayed internship posting.
+3. The system checks whether the posting is already in the user's shortlist.
+4. The system adds the posting to the user's shortlist.
 5. The system saves the updated shortlist.
-6. The system confirms that the application was successfully added.
-7. The user can later view the saved application from the shortlist on the home page.
+6. The system confirms that the internship posting was successfully added.
+7. The user can later view the saved posting from the shortlist on the home page.
+
 Extensions:
-3a. The application is already in the shortlist.
-- The system does not add a duplicate application.
-- The system informs the user that the application has already been saved.
-4a. The application can no longer be saved or does not exist.
+
+3a. The internship posting is already in the shortlist.
+- The system does not add a duplicate posting.
+- The system informs the user that the posting has already been saved.
+
+4a. The internship posting can no longer be saved or does not exist.
 - The system does not modify the shortlist.
-- The system informs the user that the application could not be added.
+- The system informs the user that the posting could not be added.
+
 5a. The shortlist cannot be saved because of a system or data-storage error.
-- The system informs the user that the application could not be saved.
+- The system informs the user that the posting could not be saved.
 - The user's existing shortlist remains unchanged.
 
 ### Use Case 9: Sort Shortlist by Due Date
 Owner: Rui Zhou
+
+MVP: No
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
 - The user is viewing their shortlist.
 - The user has access to their shortlist.
+
 Trigger: The user clicks the button to sort the shortlist by due date.
+
 Success outcome:
-- The applications in the shortlist are displayed in order according to their due dates, allowing the user to identify 
-the applications with the closest deadlines.
+- The internship postings in the shortlist are displayed in order according to their due dates, allowing the user to identify 
+the postings with the closest deadlines.
+
 Main Success Scenario:
 1. The user requests to sort the shortlist by due date.
-2. The system retrieves the applications currently saved in the user's shortlist.
-3. The system retrieves the due date associated with each application.
-4. The system orders the applications by due date, with the earliest due dates appearing first.
+2. The system retrieves the internship postings currently saved in the user's shortlist.
+3. The system retrieves the due date associated with each posting.
+4. The system orders the postings by due date, with the earliest due dates appearing first.
 5. The system displays the newly sorted shortlist to the user.
+
 Extensions:
+
 2a. The shortlist is empty.
-- The system informs the user that there are no applications to sort.
+- The system informs the user that there are no postings to sort.
 - The shortlist remains unchanged.
-3a. One or more applications do not have a due date.
-- The system still sorts all applications that have known due dates.
-- Applications without a due date are displayed after applications with known due dates.
-3b. Due-date information cannot be retrieved for one or more applications.
-- The system sorts applications with available due-date information and places applications with 
+
+3a. One or more internship postings do not have a due date.
+- The system still sorts all postings that have known due dates.
+- Postings without a due date are displayed after postings with known due dates.
+
+3b. Due-date information cannot be retrieved for one or more internship postings.
+- The system sorts postings with available due-date information and places postings with 
 unavailable due dates at the bottom of the shortlist.
-4a. Multiple applications have the same due date.
-- Applications with the same due date are grouped together.
+
+4a. Multiple postings have the same due date.
+- Postings with the same due date are grouped together.
 - The system preserves their existing relative order.
 
 ### Use Case 10: Sort Shortlist by Relevancy
 Owner: Rui Zhou 
+
+MVP: No
+
 Primary actor: User
+
 Preconditions:
 - The application is running and the user is logged in.
 - The user is viewing their shortlist.
+
 Trigger: The user clicks the button to sort their shortlist by relevancy.
+
 Success outcome: 
-- The applications in the shortlist are displayed in descending order of relevancy based on the user's 
-preferred career fields, allowing the user to identify applications that best match their career interests.
+- The internship postings in the shortlist are displayed in descending order of relevancy based on the user's 
+preferred career fields, allowing the user to identify postings that best match their career interests.
+
 Main Success Scenario:
 1. The user selects the option to sort by relevancy.
 2. The system retrieves the user's preferred career fields from their profile.
 3. The system retrieves the user’s shortlist.
-4. The system identifies keywords in each shortlisted application's job title that match the user's preferred fields or their associated synonyms.
-5. The system calculates a relevancy score for each application based on the number of distinct preferred fields matched.
-6. The system sorts the applications in descending order of relevancy score.
+4. The system identifies keywords in each shortlisted posting's job title that match the user's preferred fields 
+or their associated synonyms.
+5. The system calculates a relevancy score for each posting based on the number of distinct preferred fields matched.
+6. The system sorts the postings in descending order of relevancy score.
 7. The system displays the sorted shortlist to the user.
+
 Extensions:
-2a. The shortlist is empty.
-- The system informs the user that there are no applications to sort.
+
+3a. The shortlist is empty.
+- The system informs the user that there are no postings to sort.
 - The shortlist remains unchanged.
-2b. The user has not specified any preferred career fields.
-- The system informs the user that preferred career fields must be specified to sort applications by relevancy.
+
+4aThe user has not specified any preferred career fields.
+- The system informs the user that preferred career fields must be specified to sort postings by relevancy.
 - The shortlist remains in its existing order.
-4a. No keywords match any of the user's preferred fields.
-- The system assigns a relevancy score of zero to every application.
+
+4b. No keywords match any of the user's preferred fields.
+- The system assigns a relevancy score of zero to every posting.
 - The system preserves the existing order of the shortlist.
-5a. Multiple applications have the same relevancy score.
+
+5a. Multiple internship postings have the same relevancy score.
 - The system preserves their existing relative order.
+
 Postconditions:
-- The shortlisted applications are displayed in descending order of relevancy based on the user's preferred career 
+- The shortlisted internship postings are displayed in descending order of relevancy based on the user's preferred career 
 fields.
-- Applications with equal relevancy scores retain their existing relative order.
-- No applications are added to or removed from the shortlist.
-- The user's saved applications remain unchanged; only their displayed order is affected.
+- Postings with equal relevancy scores retain their existing relative order.
+- No postings are added to or removed from the shortlist.
+- The user's saved postings remain unchanged; only their displayed order is affected.
 
 ---
 ## Minimal Viable Product (MVP)
 | Team Member | MVP Use Case |
 |-------------|--------------|
-|Emily Kim| Use Case |
-|Jerry Zhou| Use Case |
-|Austin Wu|          |
-|Lingnan Meng| Use Case |
-|Yuheng Liu| Use Case |
+|Emily Kim| Use Case 2: Import Resume|
+|Rui Zhou| Use Case 8: Add an Application to the Shortlist|
+|Austin Wu|  |
+|Lingnan Meng| Use Case 5: Create a Qualification Profile, Use Case 6: Update a Qualification Profile, Use Case 7: View Personalized Internship Recommendations |
+|Yuheng Liu| Use Case 4: Search for internship postings |
 ---
 ## Entities
-- User
-- Resume
-- Application
-- Internship
+| Entity | Example Instance Variables | Example methods |
+|-------------|--------------|---|
+|User| userId, skills, preferredFields | getPreferredFields(), updatePreferences() |
+|Resume| resumeId, name, content | getContent(), updateContent() |
+|Application| 	applicationId, jobId, status, deadline | getDeadline(), updateStatus() |
+|JobPosting| stableId, title, company, applicationUrl | getStableId(), getTitle() |
 ---
 ## API Usage
 **API Name:**: Greenhouse Job Board API
