@@ -316,9 +316,9 @@ Main Success Scenario:
 1. The user selects the option to sort by relevancy.
 2. The system retrieves the user's preferred career fields from their profile.
 3. The system retrieves the user’s shortlist.
-4. The system identifies keywords in each shortlisted application's job title that match the user's preferred fields or 
+4. The system identifies keywords in each shortlisted internship posting's job title that match the user's preferred fields or 
 their associated synonyms.
-5. The system calculates a relevancy score for each application based on the number of distinct preferred fields matched.
+5. The system calculates a relevancy score for each internship posting based on the number of distinct preferred fields matched.
 6. The system sorts the internship postings in descending order of relevancy score.
 7. The system displays the sorted shortlist to the user.
 
@@ -326,10 +326,10 @@ Extensions:
 2a. The user has not specified any preferred career fields.
 - The system informs the user that preferred career fields must be specified to sort internship postings by relevancy.
 - The shortlist remains in its existing order.
-- 3a. The shortlist is empty.
+3a. The shortlist is empty.
 - The system informs the user that there are no internship postings to sort.
 - The shortlist remains unchanged.
-5a. No keywords match any of the user's preferred fields.
+4a. No keywords match any of the user's preferred fields.
 - The system assigns a relevancy score of zero to every internship posting.
 - The system preserves the existing order of the shortlist.
 6a. Multiple internship postings have the same relevancy score.
@@ -347,7 +347,7 @@ fields.
 | Team Member | MVP Use Case |
 |-------------|--------------|
 |Emily Kim| Use Case 2: Import Resume|
-|Rui Zhou| Use Case 8: Add an Application to the Shortlist|
+|Rui Zhou| Use Case 8: Add an Internship Posting to the Shortlist|
 |Austin Wu|  |
 |Lingnan Meng| Use Case 5: Create a Qualification Profile, Use Case 6: Update a Qualification Profile, Use Case 7: View Personalized Internship Recommendations |
 |Yuheng Liu| Use Case 4: Search for internship postings |
