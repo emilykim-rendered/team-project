@@ -359,6 +359,7 @@ fields.
 |Resume|name, id, date | getName(), getId(), getDate() |
 |Application|resumeVersion, status, job, priority | getJob(), getStatus(), updateStatus(), getPriority() |
 |JobPosting| source, boardToken, externalJobId, title, company, location, descriptionText, applicationUrl, workArrangement | getStableId(), getTitle(), getCompany(), getLocation(), getDescriptionText(), getApplicationUrl(), getWorkArrangement() |
+| Shortlist | userId, postings (List<JobPosting>) | getUserId(), addPosting(JobPosting), containsPosting(String), getPostings() |
 ---
 ## API Usage
 **API Name:**: Greenhouse Job Board API

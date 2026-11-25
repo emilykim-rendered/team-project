@@ -9,13 +9,14 @@ import java.util.List;
 public interface AddToShortlistDataAccessInterface {
 
   /**
-  * Saves a posting for the user if it has not already been saved.
-  * Postings are identified by JobPosting.getStableId().
-  *
-  * @param userId the identifier of the user
-  * @param posting the posting to save
-  * @return true if saved, false if already present
-  */
+   * Adds a posting to the user's shortlist if absent.
+   * Implementations must enforce uniqueness using Shortlist.addPosting().
+   *
+   * @param userId the identifier of the user
+   * @param posting the posting to save
+   * @return true if successfully persisted, false if already saved
+   * @throws IllegalStateException if persistence fails
+   */
   boolean saveIfAbsent(String userId, JobPosting posting);
 
   /**
