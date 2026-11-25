@@ -323,16 +323,16 @@ their associated synonyms.
 7. The system displays the sorted shortlist to the user.
 
 Extensions:
-2a. The shortlist is empty.
-- The system informs the user that there are no internship postings to sort.
-- The shortlist remains unchanged.
-2b. The user has not specified any preferred career fields.
+2a. The user has not specified any preferred career fields.
 - The system informs the user that preferred career fields must be specified to sort internship postings by relevancy.
 - The shortlist remains in its existing order.
-4a. No keywords match any of the user's preferred fields.
+- 3a. The shortlist is empty.
+- The system informs the user that there are no internship postings to sort.
+- The shortlist remains unchanged.
+5a. No keywords match any of the user's preferred fields.
 - The system assigns a relevancy score of zero to every internship posting.
 - The system preserves the existing order of the shortlist.
-5a. Multiple internship postings have the same relevancy score.
+6a. Multiple internship postings have the same relevancy score.
 - The system preserves their existing relative order.
 
 Postconditions:
@@ -355,10 +355,10 @@ fields.
 ## Entities
 | Entity | Example Instance Variables | Example methods |
 |-------------|--------------|---|
-|User| userId, skills, preferredFields | getPreferredFields(), updatePreferences() |
-|Resume| resumeId, name, content | getContent(), updateContent() |
-|Application| 	applicationId, jobId, status, deadline | getDeadline(), updateStatus() |
-|JobPosting| stableId, title, company, applicationUrl | getStableId(), getTitle() |
+|User| name, userId, email | getName(), getUserId(), getEmail() |
+|Resume|name, id, date | getName(), getId(), getDate() |
+|Application|resumeVersion, status, job, priority | getJob(), getStatus(), updateStatus(), getPriority() |
+|JobPosting| source, boardToken, externalJobId, title, company, location, descriptionText, applicationUrl, workArrangement | getStableId(), getTitle(), getCompany(), getLocation(), getDescriptionText(), getApplicationUrl(), getWorkArrangement() |
 ---
 ## API Usage
 **API Name:**: Greenhouse Job Board API
